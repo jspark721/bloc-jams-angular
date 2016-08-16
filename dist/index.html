@@ -12,28 +12,31 @@
     <link rel="stylesheet" type="text/css" href="/styles/collection.css">
     <link rel="stylesheet" type="text/css" href="/styles/album.css">
     <link rel="stylesheet" type="text/css" href="/styles/player_bar.css">
+    
 </head>
-<body>
-    <nav class="navbar"> <!-- navigation bar -->
-        <a ui-sref="landing" class="logo">
-            <img src="assets/images/bloc_jams_logo.png" alt="bloc jams logo">
-        </a>
-        <div class="links-container">
-            <a ui-sref="collection" class="navbar-link">collection</a>
-        </div>
-    </nav>
+    <body>
+        <nav class="navbar"> <!-- navigation bar -->
+            <a ui-sref="landing" class="logo">
+                <img src="assets/images/bloc_jams_logo.png" alt="bloc jams logo">
+            </a>
+            <div class="links-container">
+                <a ui-sref="collection" class="navbar-link">collection</a>
+            </div>
+        </nav>
     
-    <ui-view></ui-view>
+        <ui-view></ui-view>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.1.10/buzz.min.js"></script>
-    <script src="/scripts/app.js"></script>
-    <script src="/scripts/services/Fixtures.js"></script>
-    <script src="/scripts/services/SongPlayer.js"></script>
-    <script src="/scripts/controllers/LandingCtrl.js"></script>
-    <script src="/scripts/controllers/CollectionCtrl.js"></script>
-    <script src="/scripts/controllers/AlbumCtrl.js"></script>
-    <script src="/scripts/controllers/PlayerBarCtrl.js"></script>
-</body>
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/buzz/1.1.10/buzz.min.js"></script>
+        <script src="/scripts/app.js"></script>
+        <script src="/scripts/services/Fixtures.js"></script>
+        <script src="/scripts/services/SongPlayer.js"></script>
+        <script src="/scripts/controllers/LandingCtrl.js"></script>
+        <script src="/scripts/controllers/CollectionCtrl.js"></script>
+        <script src="/scripts/controllers/AlbumCtrl.js"></script>
+        <script src="/scripts/controllers/PlayerBarCtrl.js"></script>
+        <script src="/scripts/directives/seekBar.js"></script>
+    </body>
 </html>
