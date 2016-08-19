@@ -47,6 +47,10 @@
         var playSong = function(song){
             currentBuzzObject.play();
             song.playing = true;
+            
+            currentBuzzObject.bind("ended", function(e){
+                SongPlayer.next();
+            });
         }
         
         var stopSong = function(song){
