@@ -15,7 +15,7 @@
          */
         var currentBuzzObject = null;
         
-         /**
+                 /**
          * @function setSong
          * @desc Stops currently playing song and loads new audio file as currentBuzzObject
          * @param {Object} song
@@ -37,6 +37,21 @@
             });
             
             SongPlayer.currentSong = song;
+        }
+        
+        /**
+         * @function playSong
+         * @desc Play the current song currentBuzzObject and set the song playing to true
+         * @param {Object} song
+         */
+        var playSong = function(song){
+            currentBuzzObject.play();
+            song.playing = true;
+        }
+        
+        var stopSong = function(song){
+            currentBuzzObject.stop();
+            song.playing = null;
         }
         
         /**
@@ -62,28 +77,35 @@
         SongPlayer.currentTime = null;
         
         /**
-         * @desc Volume of currently playing SongPlayer
+         * @desc Volume of currently playing song
          * @type {Number}
          */
-        SongPlayer.volume = 80;
-             
+        SongPlayer.volume = 70;
+        
         /**
-         * @function playSong
-         * @desc Play the current song currentBuzzObject and set the song playing to true
-         * @param {Object} song
-         */
-        var playSong = function(song){
-            currentBuzzObject.play();
-            song.playing = true;
+         * @desc Mute the volume of currently playing song
+         * @param {object} song
+         **/
+        SongPlayer.toggleMute = function(song) {
+            if(currentBuzzObject.isMuted()){
+                currentBuzzObject.toggleMute();
+                SongPlayer.volume = currentBuzzObject.getVolume();
+            } 
+            else if(!currentBuzzObject.isMuted()) {
+                currentBuzzObject.toggleMute();
+                SongPlayer.volume = 0;
+            };
         }
         
-        var stopSong = function(song){
-            currentBuzzObject.stop();
-            song.playing = null;
-        }
+        SongPlayer.isMuted = function(song) {
+            if(!currentBuzzObject){
+                return false;
+            } 
+            return currentBuzzObject.isMuted();
+        };
         
         SongPlayer.play = function(song){
-            song = song || SongPlayer.currentSong;
+            song = song || SongPlayer.currentSong; 
             
             if (SongPlayer.currentSong !== song) {
                 setSong(song);
